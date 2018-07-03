@@ -7,15 +7,16 @@
 --         Output com c(N,2) distancias
 -- http://hackage.haskell.org/package/statistics-0.14.0.2/docs/Statistics-Matrix.html
 import Control.Monad (replicateM)
-import Numeric.LinearAlgebra.Data (Matrix,toRows,(><),Vector)
+import Numeric.LinearAlgebra.Data (Matrix,toRows,(><),Vector,toList)
 -- toRows :: Matrix t -> [Vector t]
 import Distances (edt)
+import Utils (pairs)
 -- edt :: Vector Double -> Vector Double -> Double
 
 mydata = (4><3)[1..] -- 4 rows/observations, 3 collumns/dimensions. values = 1...
 
 -- 1. Calculates distance matrix
-map (\x -> edt x)) $ replicateM 2 mydata
+map (\(x,y) -> edt x y) $ pairs $ toRows mydata
 
 -- 2. Creates covering over datset according to filter function
 pca :: Int -> [Vector Double] -> PCA -- PCA function which returns 1st component as vector
