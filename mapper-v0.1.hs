@@ -16,6 +16,7 @@ import Utils (pairs)
 mydata = (4><3)[1..] -- 4 rows/observations, 3 collumns/dimensions. values = 1...
 
 -- 1. Calculates distance matrix
+-- Outputs list of Doubles
 map (\(x,y) -> edt x y) $ pairs $ toRows mydata
 
 -- 2. Creates covering over datset according to filter function
