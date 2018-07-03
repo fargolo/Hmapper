@@ -1,7 +1,8 @@
 module Distances (edt) where
 import Numeric.LinearAlgebra.Data (Vector)
+import Numeric.LinearAlgebra (norm_2)
+
 
 --Euclidian distance between vectors
 edt :: Vector Double -> Vector Double -> Double
-edt a b = let squareResiduals x l = (x-l)**2 
-              in sqrt $ sum map squareResiduals a b 
+edt x y = norm_2 (x - y)
