@@ -1,17 +1,14 @@
 -- Mapper implementation in Haskell
 -- To do:
+-- (X) 1 . Distances 
+-- ( ) 2 . Covering
+-- ( ) 3 . Clustering
+-- ( ) 4 . Link Clusters
 
--- (X) Sketch 
--- (X) Create/read obs matrix 
--- ( ) Test1. 
---         Output com c(N,2) distancias
--- http://hackage.haskell.org/package/statistics-0.14.0.2/docs/Statistics-Matrix.html
 import Control.Monad (replicateM)
 import Numeric.LinearAlgebra.Data (Matrix,toRows,(><),Vector,toList)
--- toRows :: Matrix t -> [Vector t]
 import Distances (edt)
 import Utils (pairs)
--- edt :: Vector Double -> Vector Double -> Double
 
 mydata = (4><3)[1..] -- 4 rows/observations, 3 collumns/dimensions. values = 1...
 
